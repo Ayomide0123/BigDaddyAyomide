@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+html {
+  font-size: 112.5%;
+}
+body {
+  font-family: "Barlow", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+a {
+  font-family: "Fraunces", serif;
+}
+header {
+  background-image: url(./images/desktop/image-header.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 3rem;
+  color: white;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+}
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+.menu-btn {
+  display: none;
+}
+
+.contact_link {
+  color: black;
+  background-color: white;
+  padding: 0.8em;
+  border-radius: 100vmax;
+}
+header h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+  .header__nav {
+    transform: scaleY(0);
+    display: block;
+    position: absolute;
+    top: 5rem;
+    color: gray;
+    background-color: hsl(0, 0%, 100%);
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    z-index: 2;
+    transition: 1s;
+    transform-origin: top;
+  }
+  .header__nav::before {
+    content: "";
+    border-left: 25px solid transparent;
+    border-right: 25px solid white;
+    /* border-bottom: 25px solid black; */
+    border-top: 25px solid transparent;
+    /* transform: rotate(180deg); */
+    position: absolute;
+    right: 0;
+    top: -25px;
+  }
+  .header__nav li {
+    margin-bottom: 1rem;
+  }
+  .contact_link {
+    background-color: hsl(51, 100%, 49%);
+    padding-inline: 0;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+.arrow-down {
+  position: absolute;
+  left: 50%;
+  /* transform: translate(-50%, 100%); */
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+section.flex {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+section.flex > * {
+  width: 50%;
+}
+.article {
+  padding-inline: min(10vw, 8rem);
+}
+.article_heading {
+  font-size: clamp(1.2rem, 1.8vw + 0.8rem, 2.4rem);
+  margin-bottom: 2rem;
+  color: hsl(212, 27%, 19%);
+}
+.article_paragraph {
+  font-size: clamp(0.97rem, 0vw + 1rem, 1rem);
+  color: hsl(213, 9%, 39%);
+  margin-bottom: 2rem;
+}
+section.flex img {
+  transform: scaleY(1.05);
+}
+.article a {
+  text-decoration: none;
+  color: hsl(212, 27%, 19%);
+  text-transform: uppercase;
+  position: relative;
+}
+.article a::before {
+  content: "";
+  width: 110%;
+  height: 10px;
+  position: absolute;
+  bottom: 0px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: -1;
+}
+.yellow_link::before {
+  background-color: hsl(51, 100%, 49%);
+}
+.softred_link::before {
+  background-color: hsl(7, 99%, 70%);
+}
+section.reverse {
+  flex-direction: row-reverse;
+}
+
+@keyframes bounce {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 50%);
+  }
+  /* using 0% -100% is the same as from and to except you can put other states in 0%-100% */
+}
+@media (max-width: 852px) {
+  section.flex {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-block: 2rem;
+  }
+  section.flex > * {
+    width: 100%;
+  }
+  section article {
+    padding-block: 3rem;
+    text-align: center;
+  }
+}
+.graphic-photo > div {
+  position: relative;
+}
+.graphic-photo article {
+  text-align: center;
+  padding: 10%;
+  position: absolute;
+  bottom: min(3rem, 5%);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  color: hsl(198, 62%, 26%);
+}
+.graphic-photo h3 {
+  text-transform: capitalize;
+  margin-bottom: min(2rem, 6vh);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+@media (max-width: 650px) {
+  .graphic-photo article {
+    bottom: 0;
+    width: 90%;
+  }
+  .graphic-photo h3 {
+    margin-bottom: 1rem;
+  }
+}
+.testimonial {
+  padding: 10vw;
+}
+.testimonial h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: hsl(213, 9%, 39%);
+  margin-bottom: min(4rem, 10vw);
+  letter-spacing: 5px;
+}
+.testimonial-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.testimonial-card {
+  text-align: center;
+}
+.testimonial-card img {
+  width: 15%;
+  border-radius: 50%;
+}
+.testimonial-card p {
+  margin-block: min(2rem, 10vw);
+  color: hsl(213, 9%, 39%);
+}
+.testimonial-card small {
+  color: hsl(213, 9%, 39%);
+}
+@media (man-width: 769px) {
+  testimonial-container {
+    display: block;
+  }
+}
+.images {
+  display: flex;
+}
+.images img {
+  max-width: 25%;
+}
+@media (max-width: 786px) {
+  .images {
+    flex-wrap: wrap;
+  }
+  .images img {
+    max-width: 50%;
+  }
+}
+footer {
+  padding: 3rem;
+  background: hsl(168, 32%, 55%);
+  text-align: center;
+}
+
+footer nav a {
+  text-decoration: none;
+}
+
+footer nav a img {
+  filter: invert(1) brightness(0);
+  width: 9rem;
+}
+
+footer nav ul {
+  margin: 2rem 0 4rem;
+}
+
+footer nav ul li {
+  display: inline-block;
+  margin: 0 1rem;
+  list-style: none;
+}
+
+footer nav ul li a {
+  text-decoration: none;
+  color: hsl(167, 40%, 24%);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.35s;
+  font-family: "Barlow", sans-serif;
+}
+
+footer nav ul li a:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+footer > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > ul > li {
+  display: inline-block;
+  list-style: none;
+  margin: 0.7rem;
+}
+
+footer > ul > li > a {
+  text-decoration: none;
+}
+
+footer > ul > li > a img {
+  transition: 0.25s;
+}
+
+footer > ul > li > a:hover img {
+  filter: brightness(0) invert(1);
+}
